@@ -36,6 +36,8 @@
 (defn flush-all [p]
   (lease p (fn [^Jedis j] (.flushAll j))))
 
+(defn flush-db [p]
+  (lease p (fn [^Jedis j] (.flushDB j))))
 
 ;; Keys
 
