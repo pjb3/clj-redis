@@ -296,3 +296,8 @@
                   (onMessage [ch msg] (handler ch msg)))]
     (lease p (fn [^Jedis j]
       (.subscribe j pub-sub ^"[Ljava.lang.String;" (into-array chs))))))
+
+; Server
+
+(defn select [p ^Integer i]
+  (lease p (fn [^Jedis j] (.select j i))))
